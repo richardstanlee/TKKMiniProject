@@ -3,6 +3,8 @@ package org.bsim.exam.tkk.io.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "userTBL")
@@ -33,6 +35,9 @@ public class UserEntity implements Serializable {
     private String password;
 
     private boolean isDeleted = false;
+
+    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL , orphanRemoval = true)
+    private List<CCardEntity> cCardEntities = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -96,5 +101,13 @@ public class UserEntity implements Serializable {
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public List<CCardEntity> getcCardEntities() {
+        return cCardEntities;
+    }
+
+    public void setcCardEntities(List<CCardEntity> cCardEntities) {
+        this.cCardEntities = cCardEntities;
     }
 }

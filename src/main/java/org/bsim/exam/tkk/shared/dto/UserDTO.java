@@ -2,6 +2,7 @@ package org.bsim.exam.tkk.shared.dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class UserDTO implements Serializable {
     private static final long serialVersionUID = -7415598351663017642L;
@@ -13,6 +14,8 @@ public class UserDTO implements Serializable {
     private String userPhoneNumber;
     private String password;
     private boolean isDeleted;
+
+    private List<CCardDTO> listCcards;
 
     public long getId() {
         return id;
@@ -76,5 +79,13 @@ public class UserDTO implements Serializable {
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public List<CCardDTO> getListCcards() {
+        return listCcards;
+    }
+
+    public void setListCcards(List<CCardDTO> listCcards) {
+        this.listCcards = listCcards;
     }
 }
