@@ -6,6 +6,5 @@ public interface IUserInterface {
     UserDTO getUserByUserid(String userid);
     UserDTO addNewData(UserDTO user);
     UserDTO deleteUser(String userid);
-
     UserDTO updateUserData(String userid, UserDTO userDTO);
 }

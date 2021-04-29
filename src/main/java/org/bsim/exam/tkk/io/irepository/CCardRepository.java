@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+
 public interface CCardRepository extends JpaRepository<CCardEntity,Long> {
     List<CCardEntity> findAllByUser(UserEntity userEntity);
     CCardEntity findByCardSerialId(String cardSerialId);

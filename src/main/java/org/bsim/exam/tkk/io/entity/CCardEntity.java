@@ -5,6 +5,8 @@ import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "CCardTBL")
@@ -30,6 +32,9 @@ public class CCardEntity implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userid")
     private UserEntity user;
+
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL , orphanRemoval = true)
+    private List<TransactionEntity> transactionEntity = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -85,5 +90,13 @@ public class CCardEntity implements Serializable {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+    public List<TransactionEntity> getTransactionEntity() {
+        return transactionEntity;
+    }
+
+    public void setTransactionEntity(List<TransactionEntity> transactionEntity) {
+        this.transactionEntity = transactionEntity;
     }
 }
