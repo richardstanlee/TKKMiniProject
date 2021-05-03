@@ -76,10 +76,7 @@ public class CCardServiceImpl implements ICCardService {
 
         cCardEntity.setUser(userEntity);
         cCardEntity.setDeleted(true);
-
         CCardEntity value = cCardRepository.save(cCardEntity);
-
-
         return mapper.map(value,CCardDTO.class);
     }
 
@@ -92,11 +89,7 @@ public class CCardServiceImpl implements ICCardService {
             return null;
         }
         cCardEntity.setCardType(cCardDTO.getCardType());
-
         CCardEntity updateData = cCardRepository.save(cCardEntity);
-
         return new ModelMapper().map(updateData,CCardDTO.class);
     }
-
-
 }

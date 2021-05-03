@@ -14,10 +14,10 @@ public class UserEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqUSR")
-    private long id;
+    private long ID;
 
     @Column(nullable = false)
-    private String userId;
+    private String userID;
 
     @Column(nullable = false)
     private String userName;
@@ -40,19 +40,19 @@ public class UserEntity implements Serializable {
     private List<CCardEntity> cCardEntities = new ArrayList<>();
 
     public long getId() {
-        return id;
+        return ID;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.ID = id;
     }
 
     public String getUserId() {
-        return userId;
+        return userID;
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.userID = userId;
     }
 
     public String getUserName() {

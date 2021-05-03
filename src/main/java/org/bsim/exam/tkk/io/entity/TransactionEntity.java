@@ -11,7 +11,7 @@ public class TransactionEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long Id;
+    private long ID;
 
     @Column(nullable = false)
     private String note;
@@ -29,14 +29,14 @@ public class TransactionEntity implements Serializable {
     private CCardEntity card;
 
     @Column(nullable = false)
-    private String transactionId;
+    private String transactionID;
 
     public long getId() {
-        return Id;
+        return ID;
     }
 
     public void setId(long id) {
-        Id = id;
+        ID = id;
     }
 
     public String getNote() {
@@ -72,11 +72,11 @@ public class TransactionEntity implements Serializable {
     }
 
     public String getTransactionId() {
-        return transactionId;
+        return transactionID;
     }
 
     public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
+        this.transactionID = transactionId;
     }
 
     public CCardEntity getCard() {

@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/transactions")
 public class TransactionController {
-
     @Autowired
     ITransactionService iTransactionService;
 
@@ -35,7 +34,6 @@ public class TransactionController {
     public List<TransactionResponse> getAllTransactionByWalletId(@PathVariable String cardSerialId){
         ModelMapper mapper = new ModelMapper();
         List<TransactionResponse> value = new ArrayList<>();
-
         List<TransactionDTO> allTransaction = iTransactionService.getAllTransactionBycardSerialId(cardSerialId);
 
         for (TransactionDTO dto : allTransaction){
@@ -49,33 +47,23 @@ public class TransactionController {
         ModelMapper mapper = new ModelMapper();
 
         TransactionDTO transactionsDTO = mapper.map(transactionRequest , TransactionDTO.class);
-
         TransactionDTO storedValue = iTransactionService.addNewTransaction(cardSerialId, transactionsDTO);
-
-        TransactionResponse value = mapper.map(storedValue , TransactionResponse.class);
-        return value ;
+        return mapper.map(storedValue , TransactionResponse.class);
     }
 
-    @PutMapping(path = "/{cardSerialId}/{transactionId}",
-            produces = {MediaType.APPLICATION_JSON_VALUE},
-            consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PutMapping(path = "/{cardSerialId}/{transactionId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public TransactionResponse updateTransactionByTransactionId(@PathVariable String cardSerialId, @PathVariable String transactionId , @RequestBody TransactionRequest transactionRequset){
         ModelMapper mapper = new ModelMapper();
         TransactionDTO transactionsDTO = mapper.map(transactionRequset, TransactionDTO.class);
 
         TransactionDTO updatedData = iTransactionService.updateTransactionByTransactionId(cardSerialId,transactionId,transactionsDTO);
-
-
         return mapper.map(updatedData, TransactionResponse.class);
     }
 
-    @DeleteMapping(path = "/{cardSerialId}/{transactionId}",
-            produces = {MediaType.APPLICATION_JSON_VALUE})
+    @DeleteMapping(path = "/{cardSerialId}/{transactionId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public TransactionResponse deleteTransaction (@PathVariable String cardSerialId, @PathVariable String transactionId){
         ModelMapper mapper = new ModelMapper();
         TransactionDTO transactionsDTO = iTransactionService.deleteTransaction(cardSerialId,transactionId);
-
-
         return mapper.map(transactionsDTO, TransactionResponse.class);
     }
 }

@@ -19,10 +19,8 @@ import java.util.List;
 public class TransactionServiceImpl implements ITransactionService {
     @Autowired
     TransactionRepository transactionRepository;
-
     @Autowired
     CCardRepository cCardRepository;
-
     @Autowired
     GenerateRandomPublicId generateRandomPublicId;
 
@@ -32,7 +30,6 @@ public class TransactionServiceImpl implements ITransactionService {
 
         List<TransactionDTO> value = new ArrayList<>();
         List<TransactionEntity> transactionEntities = transactionRepository.findAll();
-
         for (TransactionEntity entity : transactionEntities){
             value.add(mapper.map(entity , TransactionDTO.class));
         }
@@ -43,10 +40,9 @@ public class TransactionServiceImpl implements ITransactionService {
     public List<TransactionDTO> getAllTransactionBycardSerialId(String cardSerialId) {
         List<TransactionDTO> value = new ArrayList<>();
         ModelMapper mapper = new ModelMapper();
+
         CCardEntity cCardEntity = cCardRepository.findByCardSerialId(cardSerialId);
-
         List<TransactionEntity> transactionEntities = transactionRepository.findByCard(cCardEntity);
-
         for (TransactionEntity entity : transactionEntities){
             value.add(mapper.map(entity , TransactionDTO.class));
         }
@@ -62,18 +58,14 @@ public class TransactionServiceImpl implements ITransactionService {
         CCardEntity cCardEntity = cCardRepository.findByCardSerialId(cardSerialId);
         used = cCardEntity.getCardUsed();
         amountInit = transactionsDTO.getAmount();
-
         cCardEntity.setCardUsed(used + amountInit);
         cCardRepository.save(cCardEntity);
 
         TransactionEntity entity = mapper.map(transactionsDTO , TransactionEntity.class);
-
         entity.setCard(cCardEntity);
-
         entity.setTransactionId(generateRandomPublicId.generateUserId(35));
 
         TransactionEntity storedValue = transactionRepository.save(entity);
-
         TransactionDTO value = mapper.map(storedValue , TransactionDTO.class);
         return value;
     }
@@ -89,9 +81,8 @@ public class TransactionServiceImpl implements ITransactionService {
         long amountUpdate = transactionsDTO.getAmount();
 
         CCardEntity cCardEntity = cCardRepository.findByCardSerialId(cardSerialId);
-        cardUsedInit = cCardEntity.getCardUsed();
-
         TransactionEntity transactionEntity = transactionRepository.findByTransactionId(transactionId);
+        cardUsedInit = cCardEntity.getCardUsed();
         amountInit = transactionEntity.getAmount();
 
         TransactionEntity entity = mapper.map(transactionsDTO,TransactionEntity.class);
@@ -107,7 +98,6 @@ public class TransactionServiceImpl implements ITransactionService {
         cCardRepository.save(cCardEntity);
 
         TransactionEntity value = transactionRepository.save(entity);
-
         return mapper.map(value,TransactionDTO.class);
     }
 
@@ -119,10 +109,7 @@ public class TransactionServiceImpl implements ITransactionService {
 
         transactionEntity.setCard(cCardEntity);
         transactionEntity.setDeleted(true);
-
         TransactionEntity value = transactionRepository.save(transactionEntity);
-
-
         return mapper.map(value,TransactionDTO.class);
     }
 

@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class CCardDTO implements Serializable {
 
     private static final long serialVersionUID= 3412108276913856511L;
-    private long id;
-    private String cardSerialId;
+    private long ID;
+    private String cardSerialID;
     private String cardType;
     private long cardUsed;
     private long cardLimit;
@@ -14,19 +14,19 @@ public class CCardDTO implements Serializable {
     private UserDTO userDTO;
 
     public long getId() {
-        return id;
+        return ID;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.ID = id;
     }
 
     public String getCardSerialId() {
-        return cardSerialId;
+        return cardSerialID;
     }
 
     public void setCardSerialId(String cardSerialId) {
-        this.cardSerialId = cardSerialId;
+        this.cardSerialID = cardSerialId;
     }
 
     public String getCardType() {

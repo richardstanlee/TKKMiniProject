@@ -3,7 +3,7 @@ package org.bsim.exam.tkk.ui.model.response;
 import java.time.LocalDateTime;
 
 public class UserResponse {
-    private String userId;
+    private String userID;
     private String userName;
     private LocalDateTime userDOB;
     private String userAddress;
@@ -13,11 +13,11 @@ public class UserResponse {
     private boolean isDeleted;
 
     public String getUserId() {
-        return userId;
+        return userID;
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.userID = userId;
     }
 
     public String getUserName() {

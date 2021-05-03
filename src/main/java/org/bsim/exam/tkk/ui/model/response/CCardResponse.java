@@ -1,18 +1,18 @@
 package org.bsim.exam.tkk.ui.model.response;
 
 public class CCardResponse {
-    private String cardSerialId;
+    private String cardSerialID;
     private String cardType;
     private long cardUsed;
     private long cardLimit;
     private boolean isDeleted;
 
     public String getCardSerialId() {
-        return cardSerialId;
+        return cardSerialID;
     }
 
     public void setCardSerialId(String cardSerialId) {
-        this.cardSerialId = cardSerialId;
+        this.cardSerialID = cardSerialId;
     }
 
     public String getCardType() {

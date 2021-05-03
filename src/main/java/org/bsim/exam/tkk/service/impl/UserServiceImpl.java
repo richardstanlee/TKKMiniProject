@@ -32,9 +32,7 @@ public class UserServiceImpl implements IUserInterface {
 
         UserEntity entity = mapper.map(user, UserEntity.class);
         UserEntity storedData = userRepository.save(entity);
-
         UserDTO value = mapper.map(storedData, UserDTO.class);
-
         return value;
     }
 
@@ -45,10 +43,7 @@ public class UserServiceImpl implements IUserInterface {
 
         userEntity.setUserId(userid);
         userEntity.setDeleted(true);
-
         UserEntity value = userRepository.save(userEntity);
-
-
         return mapper.map(value,UserDTO.class);
     }
 
@@ -66,7 +61,6 @@ public class UserServiceImpl implements IUserInterface {
         userEntity.setPassword(userDTO.getPassword());
 
         UserEntity updateData = userRepository.save(userEntity);
-
         return new ModelMapper().map(updateData,UserDTO.class);
     }
 }

@@ -6,8 +6,8 @@ import java.util.List;
 
 public class UserDTO implements Serializable {
     private static final long serialVersionUID = -7415598351663017642L;
-    private long id;
-    private String userId;
+    private long ID;
+    private String userID;
     private String userName;
     private LocalDateTime userDOB;
     private String userAddress;
@@ -18,19 +18,19 @@ public class UserDTO implements Serializable {
     private List<CCardDTO> listCcards;
 
     public long getId() {
-        return id;
+        return ID;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.ID = id;
     }
 
     public String getUserId() {
-        return userId;
+        return userID;
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.userID = userId;
     }
 
     public String getUserName() {

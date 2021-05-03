@@ -5,7 +5,7 @@ import org.bsim.exam.tkk.shared.dto.CCardDTO;
 import java.time.LocalDateTime;
 
 public class TransactionResponse {
-    private String transactionId;
+    private String transactionID;
     private String note;
     private long amount;
     private LocalDateTime date;
@@ -13,11 +13,11 @@ public class TransactionResponse {
     private CCardDTO cCardDTO;
 
     public String getTransactionId() {
-        return transactionId;
+        return transactionID;
     }
 
     public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
+        this.transactionID = transactionId;
     }
 
     public String getNote() {

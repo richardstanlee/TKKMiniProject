@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 public class TransactionDTO implements Serializable {
     private static final long serialVersionUID = -9119327771288963564L;
 
-    private long id;
-    private String transactionId;
+    private long ID;
+    private String transactionID;
     private String note;
     private long amount;
     private LocalDateTime date;
@@ -15,19 +15,19 @@ public class TransactionDTO implements Serializable {
     private CCardDTO cCardDTO;
 
     public long getId() {
-        return id;
+        return ID;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.ID = id;
     }
 
     public String getTransactionId() {
-        return transactionId;
+        return transactionID;
     }
 
     public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
+        this.transactionID = transactionId;
     }
 
     public String getNote() {

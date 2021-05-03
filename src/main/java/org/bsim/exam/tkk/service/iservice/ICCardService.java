@@ -7,13 +7,8 @@ import java.util.List;
 
 
 public interface ICCardService {
-
     CCardDTO addNewCCardData(String userid, CCardDTO cCardDTO);
-
     List<CCardDTO> getAllCardsData(String userid);
-
-
     CCardDTO deleteCreditCard(String userid, String cardSerialId);
-
     CCardDTO updateCardData(String userid, String cardSerialId, CCardDTO cCardDTO);
 }

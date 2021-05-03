@@ -6,14 +6,8 @@ import java.util.List;
 
 public interface ITransactionService {
     List<TransactionDTO> getAllTransaction();
-
     List<TransactionDTO> getAllTransactionBycardSerialId(String cardSerialId);
-
     TransactionDTO addNewTransaction(String cardSerialId, TransactionDTO transactionsDTO);
-
     TransactionDTO updateTransactionByTransactionId(String cardSerialId, String transactionId, TransactionDTO transactionsDTO);
-
     TransactionDTO deleteTransaction(String cardSerialId, String transactionId);
-
-
 }

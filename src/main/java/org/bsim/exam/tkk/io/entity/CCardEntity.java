@@ -15,10 +15,10 @@ public class CCardEntity implements Serializable {
     private static final long serialVersionUID = -9213882945795366542L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqCC")
-    private long id;
+    private long ID;
 
     @Column(nullable = false)
-    private String cardSerialId;
+    private String cardSerialID;
 
     @Column(nullable = false)
     private String cardType;
@@ -37,19 +37,19 @@ public class CCardEntity implements Serializable {
     private List<TransactionEntity> transactionEntity = new ArrayList<>();
 
     public long getId() {
-        return id;
+        return ID;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.ID = id;
     }
 
     public String getCardSerialId() {
-        return cardSerialId;
+        return cardSerialID;
     }
 
     public void setCardSerialId(String cardSerialId) {
-        this.cardSerialId = cardSerialId;
+        this.cardSerialID = cardSerialId;
     }
 
     public String getCardType() {
